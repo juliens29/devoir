@@ -1,0 +1,42 @@
+ul#menu_horizontal li {
+    display : inline;
+    padding : 0 0.5em; /* Pour espacer les boutons entre eux */
+}
+ul {
+    list-style-type : none; /* Car sinon les puces se placent n'importe où */
+}
+.custom-control-label::before, .custom-file-label, .custom-select {
+    transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.custom-select {
+    display: inline-block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: .375rem 1.75rem .375rem .75rem;
+    line-height: 1.5;
+    color: #495057;
+    vertical-align: middle;
+background-size: 8px 10px;
+border: 1px solid #ced4da;
+border-radius: .25rem;
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+}
+button, select {
+text-transform: none;
+}
+button, input, optgroup, select, textarea {
+margin: 0;
+font-family: inherit;
+font-size: inherit;
+line-height: inherit;
+}
+*, ::after, ::before {
+box-sizing: border-box;
+}
+user agent stylesheet
+select:not(:-internal-list-box) {
+    overflow: visible !important;
+}
+

@@ -1,0 +1,37 @@
+doctype html
+html(lang="fr")
+    head
+        meta(charset="UTF-8")
+        title Welcome
+        link(rel='stylesheet', href='../assets/components/css/bootstrap.css')
+        link(rel='stylesheet', href='../assets/css/custom.css')
+    body
+
+        - var links = { "Item1": "/link1", "Item2": "/link2" }
+
+
+
+        .container-fluid
+            .row
+                .col-12
+                    h1.text-center Musée de la fondation WDS
+        .container
+            .row
+                .col-12
+                    ul
+                        each element in collections
+                            - var lien = '/collection/'+element.id
+                            li
+                                a(href=lien) #{element.libelle}
+                .col-12
+                    a(href="#") Retour au musé
+
+        .container
+            .row
+                .col-12
+                    h3 Partie admin
+
+
+        script(src='../assets/components/js/jquery-3.3.1.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js')
+        script(src='../assets/components/js//bootstrap.min.js')

@@ -1,0 +1,55 @@
+doctype html
+html(lang="fr")
+    head
+        meta(charset="UTF-8")
+        title Welcome
+        link(rel='stylesheet', href='../assets/components/css/bootstrap.css')
+        link(rel='stylesheet', href='../assets/css/custom.css')
+    body
+
+        - var links = { "Item1": "/link1", "Item2": "/link2" }
+
+
+
+        .container-fluid
+            .row.bg-dark.pt-3.pb-1
+                .col-8
+                    h1.h2.text-center
+                        a.text-light(href="/collection") Musée de la fondation WDS
+                .col-2
+                    p.text-left
+                        a.text-light(href="/oeuvre/ajouter") Ajouter une Oeuvre
+                .col-2
+                    p.text-left
+                        a.text-light(href="/collection/supprimer") Supprimer une collection
+            .row.mb-2.mt-2
+                .col-12
+                    h1.text-center Musée de la fondation WDS
+                .col-12
+                    h3.text-center Ajouter une oeuvre
+        .container
+            .row.justify-content-center.mt-5.mb-5
+                .col-12
+                    form(action="/oeuvre/add/new" , method="post")
+                        .form-row
+                            .form-group.col-4
+                                input.form-control#libelle(type="text",name="titre",placeholder="libelle*")
+                        .form-row
+                            .form-group.col-4
+                                select.custom-select(name="selectcollection")
+                                    each element in collections
+                                        option(value=element.id) #{element.libelle}
+                        .form-row
+                            .form-group.col-4
+                                select.custom-select(name="selectcategorie")
+                                    each element in categorie
+                                        option(value=element.id) #{element.libelle}
+
+                        .form-row
+                            .form-group.col-4
+                                input.form-control(type="submit", value="Valider")
+
+
+        script(src='../assets/components/js/jquery-3.3.1.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js')
+        script(src='../assets/components/js//bootstrap.min.js')

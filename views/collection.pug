@@ -1,0 +1,54 @@
+doctype html
+html(lang="fr")
+    head
+        meta(charset="UTF-8")
+        title Collection
+        link(rel='stylesheet', href='../assets/components/css/bootstrap.css')
+        link(rel='stylesheet', href='../assets/css/custom.css')
+    body
+
+        - var links = { "Item1": "/link1", "Item2": "/link2" }
+
+
+
+        .container-fluid
+            .row.bg-dark.pt-3.pb-1
+                .col-8
+                    h1.h2.text-center
+                        a.text-light(href="/collection") Musée de la fondation WDS
+                .col-2
+                    p.text-left
+                        a.text-light(href="/oeuvre/ajouter") Ajouter une Oeuvre
+                .col-2
+                    p.text-left
+                        a.text-light(href="/collection/supprimer") Supprimer une collection
+            .row.mb-2.mt-2
+                .col-12
+                    h1.text-center Musée de la fondation WDS
+        .container
+            .row
+                .col-12
+                    h3.text-center Venez visiter nos collections virtuelles
+                .col-12
+                    ul
+                        each element in collections
+                            - var lien = '/collection/'+element.id
+                            li
+                                a(href=lien) #{element.libelle}
+
+        .container
+            .row.mb-5.mt-5
+                .col-4
+                    h6.alert.alert-danger Partie admin
+                    ul
+                        li
+                            p
+                                a(href="/collection/supprimer") Supprimer une collection
+                            p
+                                a(href="/oeuvre/ajouter") Ajouter une oeuvre
+
+
+
+        script(src='../assets/components/js/jquery-3.3.1.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js')
+        script(src='../assets/components/js//bootstrap.min.js')
